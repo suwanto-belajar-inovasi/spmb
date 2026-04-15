@@ -157,7 +157,6 @@
     </div>
 
     <script>
-        // GANTI DENGAN URL WEB APP GOOGLE APPS SCRIPT ANDA
         const GAS_URL = "https://script.google.com/macros/s/AKfycbxG_cdMwGHa72iJx2z_bqcHcN1JsffLRwWChEKiuUSbj5CpWhcXTnr85mFD2hGIUkkKNw/exec";
 
         const form = document.getElementById('spmbForm');
@@ -171,7 +170,6 @@
             const nama = document.getElementById('nama').value.trim();
             const noHp = document.getElementById('noHp').value.trim();
 
-            // Validasi Kosong (Double Check meskipun sudah required di HTML)
             if (!nama || !noHp) {
                 Swal.fire({
                     icon: 'error',
@@ -182,13 +180,11 @@
                 return;
             }
 
-            // UI State: Loading & Anti Double Submit
             btnSubmit.disabled = true;
             spinner.style.display = 'inline-block';
             btnText.textContent = 'Mengirim data...';
 
             try {
-                // Konfigurasi fetch menggunakan text/plain untuk menghindari kegagalan CORS Preflight di GAS
                 const response = await fetch(GAS_URL, {
                     method: 'POST',
                     headers: {
@@ -200,17 +196,30 @@
                 const result = await response.json();
 
                 if (result.status === 'success') {
-                    // Reset Form
                     form.reset();
                     
-                    // Popup Sukses
+                    // --- PERUBAHAN UTAMA ADA DI SINI ---
                     Swal.fire({
                         icon: 'success',
                         title: 'Pendaftaran Berhasil!',
                         html: `No Pendaftaran: <b>${result.noDaftar}</b><br><br>Cek WhatsApp Anda untuk konfirmasi 📲`,
                         confirmButtonColor: '#2563eb',
-                        confirmButtonText: 'Tutup'
+                        confirmButtonText: 'Lanjut ke Menu Berikutnya ➡️',
+                        allowOutsideClick: false // Mencegah user menutup popup dengan klik di luar
+                    }).then((alertResult) => {
+                        // Jika tombol "Lanjut" diklik
+                        if (alertResult.isConfirmed) {
+                            
+                            // GANTI URL INI dengan URL menu selanjutnya Anda
+                            // Contoh: upload-berkas.html, dashboard.html, dll.
+                            const urlMenuSelanjutnya = "dashboard.html"; 
+                            
+                            // Redirect sambil membawa parameter No Pendaftaran
+                            window.location.href = `${urlMenuSelanjutnya}?noDaftar=${result.noDaftar}`;
+                        }
                     });
+                    // -----------------------------------
+
                 } else {
                     throw new Error(result.message);
                 }
@@ -223,7 +232,6 @@
                     confirmButtonColor: '#2563eb'
                 });
             } finally {
-                // UI State: Kembalikan tombol ke semula
                 btnSubmit.disabled = false;
                 spinner.style.display = 'none';
                 btnText.textContent = 'Daftar Sekarang';
