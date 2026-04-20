@@ -8,9 +8,18 @@
       gtag('js', new Date());
       gtag('config', 'G-W1FVQ5ZFXQ');
     </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MIS Baiturrahman Gubeng - SPMB 2026</title>
+    
+    <title>Penerimaan Siswa Madrasah Baru MIS Baiturrahman Gubeng - SPMB 2026</title>
+    <meta name="description" content="Penerimaan Siswa Madrasah Baru (SPMB) Tahun 2026 di MIS Baiturrahman Gubeng Surabaya. Sekolah Islam berprestasi dengan visi Care, Creative and Islamic Generation. Daftar segera, kuota terbatas!">
+    <meta name="keywords" content="penerimaan siswa madrasah baru, pendaftaran SD Islam Surabaya, madrasah ibtidaiyah surabaya, MIS Baiturrahman Gubeng, sekolah islam terbaik, SPMB 2026, pendidikan islam surabaya">
+    <meta name="author" content="MIS Baiturrahman Gubeng">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="icon" href="https://lh3.googleusercontent.com/d/1rVC6I82ii14tPWayJ7BwPcG_ml0XmYWR" type="image/jpeg">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
@@ -22,39 +31,15 @@
             --border-color: #d1d5db;
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-        }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); }
 
         /* Top Bar */
-        .top-bar {
-            background-color: #C8A2C8;
-            color: white;
-            padding: 10px 5%;
-            font-size: 14px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        .top-bar { background-color: #C8A2C8; color: white; padding: 10px 5%; font-size: 14px; display: flex; justify-content: space-between; align-items: center; }
         .top-bar a { color: white; text-decoration: none; margin-left: 15px; }
         .top-bar i { margin-right: 5px; }
 
         /* Header / Navbar */
-        .header {
-            background-color: #ffffff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+        .header { background-color: #ffffff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
         .logo-section { display: flex; align-items: center; cursor: pointer; }
         .logo-section img { height: 40px; width: auto; margin-right: 15px; }
         .logo-section h1 { font-size: 24px; color: var(--primary-blue); margin: 0; }
@@ -71,28 +56,23 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* Hero Section */
-        .hero {
-            background-color: #e0e0e0;
-            color: var(--primary-blue);
-            padding: 100px 5%;
-            text-align: center;
-            background-image: url('https://lh3.googleusercontent.com/d/1rVC6I82ii14tPWayJ7BwPcG_ml0XmYWR');
-            background-size: cover;
-            background-position: center;
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
+        .hero { background-color: #e0e0e0; color: var(--primary-blue); padding: 80px 5%; text-align: center; background-image: url('https://lh3.googleusercontent.com/d/1rVC6I82ii14tPWayJ7BwPcG_ml0XmYWR'); background-size: cover; background-position: center; min-height: 450px; display: flex; align-items: center; justify-content: center; flex-direction: column; position: relative;}
+        .hero::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 40, 88, 0.3); } /* Overlay gelap agar teks terbaca */
+        .hero-content { background-color: rgba(255, 255, 255, 0.95); padding: 40px 50px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); position: relative; z-index: 2; max-width: 800px; }
+        .hero h2 { font-size: 38px; margin: 0; color: var(--primary-blue); font-weight: bold;}
+        .hero p.tagline { font-size: 20px; margin-top: 10px; font-style: italic; color: #555;}
+        
+        /* Urgency Text & Pulse Button */
+        .urgency-box { background: #fff3e0; border: 2px dashed var(--accent-orange); padding: 15px; border-radius: 8px; margin: 25px 0; }
+        .urgency-box h3 { color: #d84315; margin: 0 0 5px 0; font-size: 20px; }
+        .urgency-box p { margin: 0; color: #424242; font-size: 15px; }
+
+        @keyframes pulse-animation {
+            0% { box-shadow: 0 0 0 0 rgba(253, 83, 8, 0.7); transform: scale(1); }
+            50% { box-shadow: 0 0 0 15px rgba(253, 83, 8, 0); transform: scale(1.05); }
+            100% { box-shadow: 0 0 0 0 rgba(253, 83, 8, 0); transform: scale(1); }
         }
-        .hero-content {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 40px 50px;
-            border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .hero h2 { font-size: 36px; margin: 0; }
-        .hero p { font-size: 20px; margin-top: 10px; margin-bottom: 25px;}
+        .btn-pulse { animation: pulse-animation 2s infinite; font-size: 20px !important; padding: 18px 40px !important; }
 
         /* Buttons */
         .btn { padding: 14px 24px; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: 0.2s ease; display: inline-flex; justify-content: center; align-items: center; gap: 8px; }
@@ -102,8 +82,8 @@
         .btn-blue:hover:not(:disabled) { background: #001f46; transform: translateY(-2px); }
         .btn-outline { background: transparent; border: 2px solid var(--primary-blue); color: var(--primary-blue); width: 100%; margin-top: 10px;}
         .btn-outline:hover { background: var(--primary-blue); color: white; }
-        .btn-large { padding: 16px 32px; font-size: 18px; border-radius: 50px; text-transform: uppercase; letter-spacing: 1px; }
-        .btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+        .btn-large { border-radius: 50px; text-transform: uppercase; letter-spacing: 1px; }
+        .btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; animation: none; }
 
         /* Sambutan Section */
         .main-content { padding: 50px 5%; max-width: 1200px; margin: 0 auto;}
@@ -150,6 +130,9 @@
             .sambutan-section { flex-direction: column; }
             .kepala-madrasah-photo { flex: 0 0 auto; margin: 0 auto 20px auto; }
             .form-container { padding: 20px; }
+            .hero-content { padding: 30px 20px; }
+            .hero h2 { font-size: 28px; }
+            .btn-pulse { padding: 15px 25px !important; font-size: 16px !important; }
         }
 
         /* Print CSS */
@@ -187,7 +170,7 @@
                 <li><a onclick="showSection('sec-landing')" class="active-page" id="nav-beranda">BERANDA</a></li>
                 <li><a href="https://sites.google.com/view/misbaiturrahmangubeng/profile">PROFILE SEKOLAH</a></li>
                 <li><a href="https://sites.google.com/view/misbaiturrahmangubeng/kegiatansiswa">KEGIATAN SISWA</a></li>
-                <li><a onclick="showSection('sec-akun')" id="nav-spmb" style="color: var(--accent-orange);">SPMB 2026-2027</a></li>
+                <li><a onclick="showSection('sec-akun')" id="nav-spmb" style="color: var(--accent-orange); font-weight: bold;">SPMB 2026</a></li>
             </ul>
         </nav>
     </header>
@@ -197,15 +180,23 @@
         <div id="sec-landing" class="section active">
             <section class="hero">
                 <div class="hero-content">
-                    <h2>MIS Baiturrahman Gubeng</h2>
-                    <p>"Care, Creative and Islamic Generation"</p>
-                    <button class="btn btn-orange btn-large" onclick="showSection('sec-akun')">Daftar SPMB Sekarang</button>
+                    <h2>Penerimaan Siswa Madrasah Baru 2026</h2>
+                    <p class="tagline">MIS Baiturrahman Gubeng - "Care, Creative and Islamic Generation"</p>
+                    
+                    <div class="urgency-box">
+                        <h3>🔥 Segera Daftarkan Putra-Putri Anda! 🔥</h3>
+                        <p>Pendaftaran Gelombang 1 segera ditutup. Pastikan Ananda mendapatkan kursi di madrasah berprestasi kami. Kuota sangat terbatas!</p>
+                    </div>
+
+                    <button class="btn btn-orange btn-large btn-pulse" onclick="showSection('sec-akun')">
+                        <i class="fa-solid fa-user-plus"></i> Daftar SPMB Sekarang!
+                    </button>
                 </div>
             </section>
             
             <div class="sambutan-section">
                 <div class="kepala-madrasah-photo">
-                    <img src="https://lh3.googleusercontent.com/d/13mwILXDM8PN77a8tUkaPLv9RH5yxjXIl" alt="Foto Kepala Madrasah">
+                    <img src="https://lh3.googleusercontent.com/d/13mwILXDM8PN77a8tUkaPLv9RH5yxjXIl" alt="Foto Kepala Madrasah MIS Baiturrahman">
                 </div>
                 <div class="sambutan-text">
                     <h2>Sambutan Kepala Madrasah</h2>
@@ -237,7 +228,7 @@
                         <label for="noHpAwal">Nomor WhatsApp Aktif (Orang Tua/Wali)</label>
                         <input type="tel" id="noHpAwal" class="form-control" placeholder="Contoh: 08123456789" required>
                     </div>
-                    <button type="submit" id="btnAkun" class="btn btn-blue">
+                    <button type="submit" id="btnAkun" class="btn btn-blue" style="padding: 16px; font-size: 16px;">
                         <span class="spinner" id="spinAkun"></span> <span id="txtAkun">Buat Akun Pendaftaran</span>
                     </button>
                     <button type="button" class="btn btn-outline" onclick="showSection('sec-landing')">Kembali ke Beranda</button>
@@ -272,7 +263,7 @@
                         <label for="namaWali">Nama Orang Tua / Wali</label>
                         <input type="text" id="namaWali" class="form-control" required>
                     </div>
-                    <button type="submit" id="btnLengkap" class="btn btn-blue">
+                    <button type="submit" id="btnLengkap" class="btn btn-blue" style="padding: 16px; font-size: 16px;">
                         <span class="spinner" id="spinLengkap"></span> <span id="txtLengkap">Simpan & Selesaikan Pendaftaran</span>
                     </button>
                 </form>
@@ -300,7 +291,7 @@
                     Silakan cetak atau <i>screenshot</i> bukti pendaftaran ini dan tunjukkan kepada panitia saat daftar ulang. Notifikasi WhatsApp juga telah dikirim ke nomor Anda.
                 </p>
 
-                <button onclick="window.print()" class="btn btn-blue">🖨️ Cetak / Simpan PDF</button>
+                <button onclick="window.print()" class="btn btn-blue" style="padding: 14px; margin-bottom: 10px;">🖨️ Cetak / Simpan PDF</button>
                 <button onclick="location.reload()" class="btn btn-outline">Selesai & Kembali ke Beranda</button>
             </div>
         </div>
@@ -313,7 +304,7 @@
         <div class="footer-column">
             <h4>Tautan Cepat</h4>
             <p><a onclick="showSection('sec-landing')" style="cursor:pointer;">Beranda</a></p>
-            <p><a onclick="showSection('sec-akun')" style="cursor:pointer; color:var(--accent-orange); font-weight:bold;">Daftar SPMB 2026-2027</a></p>
+            <p><a onclick="showSection('sec-akun')" style="cursor:pointer; color:var(--accent-orange); font-weight:bold;">Daftar SPMB 2026</a></p>
             <p><a href="https://wa.me/6285745686831">Kontak Kami</a></p>
         </div>
         <div class="footer-column">
@@ -337,29 +328,20 @@
         let globalNoDaftar = "";
         let globalNama = "";
 
-        // Fungsi Navigasi Antar Section (SPA Logic)
         function showSection(sectionId) {
-            // Sembunyikan semua section
             document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-            // Tampilkan section yang dituju
             document.getElementById(sectionId).classList.add('active');
-            
-            // Scroll ke atas halaman
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            // Update UI menu aktif
             document.getElementById('nav-beranda').classList.remove('active-page');
             if(sectionId === 'sec-landing') {
                 document.getElementById('nav-beranda').classList.add('active-page');
             }
         }
 
-        // ==========================================
-        // SUBMIT TAHAP 1: BUAT AKUN
-        // ==========================================
+        // Submit Tahap 1
         document.getElementById('formAkun').addEventListener('submit', async (e) => {
             e.preventDefault();
-            
             const nama = document.getElementById('namaAwal').value.trim();
             const noHp = document.getElementById('noHpAwal').value.trim();
             globalNama = nama; 
@@ -382,15 +364,9 @@
                 if (result.status === 'success') {
                     globalNoDaftar = result.noDaftar;
                     document.getElementById('lblNoDaftar').textContent = globalNoDaftar; 
-                    
                     Swal.fire({
-                        icon: 'success',
-                        title: 'Akun Berhasil Dibuat!',
-                        text: 'Silakan lanjutkan mengisi data kelengkapan anak.',
-                        confirmButtonColor: '#002858'
-                    }).then(() => {
-                        showSection('sec-lengkap'); 
-                    });
+                        icon: 'success', title: 'Akun Berhasil Dibuat!', text: 'Silakan lanjutkan mengisi data kelengkapan anak.', confirmButtonColor: '#002858'
+                    }).then(() => { showSection('sec-lengkap'); });
                 } else {
                     throw new Error(result.message);
                 }
@@ -401,12 +377,9 @@
             }
         });
 
-        // ==========================================
-        // SUBMIT TAHAP 2: LENGKAPI DATA
-        // ==========================================
+        // Submit Tahap 2
         document.getElementById('formLengkap').addEventListener('submit', async (e) => {
             e.preventDefault();
-
             const dataPelengkap = {
                 action: 'complete',
                 noDaftar: globalNoDaftar,
@@ -433,7 +406,6 @@
                 const result = await response.json();
 
                 if (result.status === 'success') {
-                    // Isi data di halaman Bukti Pendaftaran
                     document.getElementById('bNoDaftar').textContent = globalNoDaftar;
                     document.getElementById('bNama').textContent = globalNama;
                     document.getElementById('bTTL').textContent = `${dataPelengkap.tempatLahir}, ${dataPelengkap.tglLahir}`;
@@ -441,13 +413,8 @@
                     document.getElementById('bWali').textContent = dataPelengkap.namaWali;
 
                     Swal.fire({
-                        icon: 'success',
-                        title: 'Pendaftaran Selesai!',
-                        text: 'Data Anda telah tersimpan dengan aman.',
-                        confirmButtonColor: '#fd5308'
-                    }).then(() => {
-                        showSection('sec-bukti'); 
-                    });
+                        icon: 'success', title: 'Pendaftaran Selesai!', text: 'Data Anda telah tersimpan dengan aman.', confirmButtonColor: '#fd5308'
+                    }).then(() => { showSection('sec-bukti'); });
                 } else {
                     throw new Error(result.message);
                 }
