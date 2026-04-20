@@ -3,240 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pendaftaran SPMB 2026</title>
+    <title>SPMB MIS Baiturrahman</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-hover: #1d4ed8;
-            --bg-color: #f3f4f6;
+            --primary: #10b981; /* Hijau Islami */
+            --primary-hover: #059669;
+            --secondary: #047857;
+            --bg-color: #f0fdf4;
             --text-dark: #1f2937;
-            --text-muted: #6b7280;
+            --text-muted: #4b5563;
             --white: #ffffff;
-            --border: #e5e7eb;
+            --border: #d1d5db;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
 
-        body {
-            background-color: var(--bg-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
+        body { background-color: var(--bg-color); color: var(--text-dark); min-height: 100vh; }
 
-        .card {
-            background: var(--white);
-            width: 100%;
-            max-width: 420px;
-            padding: 32px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-        }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
 
-        .header {
-            text-align: center;
-            margin-bottom: 24px;
-        }
+        /* Sections Control */
+        .section { display: none; animation: fadeIn 0.5s ease-in-out; }
+        .section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .header h2 {
-            color: var(--text-dark);
-            font-size: 24px;
-            margin-bottom: 8px;
-        }
+        /* Card Style */
+        .card { background: var(--white); padding: 32px; border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
 
-        .header p {
-            color: var(--text-muted);
-            font-size: 14px;
-        }
+        /* Landing Page Elements */
+        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--white); border-radius: 16px; margin-bottom: 20px; box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2); }
+        .hero h1 { font-size: 36px; margin-bottom: 10px; }
+        .hero p.tagline { font-size: 18px; font-style: italic; margin-bottom: 30px; opacity: 0.9; }
+        
+        /* Forms */
+        .header { text-align: center; margin-bottom: 24px; }
+        .header h2 { color: var(--secondary); font-size: 24px; margin-bottom: 8px; }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 6px; font-size: 14px; font-weight: 600; }
+        .form-control { width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; font-size: 15px; background-color: #f9fafb; transition: all 0.3s ease; }
+        .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2); background-color: var(--white); }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+        /* Buttons */
+        .btn { padding: 14px 24px; color: var(--white); border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: 0.2s ease; display: inline-flex; justify-content: center; align-items: center; gap: 8px; }
+        .btn-primary { background: var(--primary); width: 100%; }
+        .btn-primary:hover:not(:disabled) { background: var(--primary-hover); transform: translateY(-2px); }
+        .btn-large { background: var(--white); color: var(--secondary); padding: 16px 32px; font-size: 18px; border-radius: 50px; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-large:hover { background: #f3f4f6; transform: scale(1.05); }
+        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); width: 100%; margin-top: 10px;}
+        .btn-outline:hover { background: var(--primary); color: var(--white); }
+        .btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 6px;
-            color: var(--text-dark);
-            font-size: 14px;
-            font-weight: 500;
-        }
+        /* Print Area (Bukti Daftar) */
+        .bukti-container { border: 2px dashed var(--primary); padding: 20px; border-radius: 12px; margin-bottom: 20px; background: #fafafa;}
+        .bukti-row { display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px;}
+        .bukti-row span:first-child { font-weight: 600; color: var(--text-muted); }
+        .bukti-row span:last-child { font-weight: bold; color: var(--text-dark); text-align: right; }
 
-        .form-control {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-size: 15px;
-            transition: all 0.3s ease;
-            background-color: #f9fafb;
-        }
+        .spinner { display: none; width: 20px; height: 20px; border: 3px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: currentColor; animation: spin 1s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-            background-color: var(--white);
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, var(--primary), #3b82f6);
-            color: var(--white);
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-submit:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-        }
-
-        .btn-submit:disabled {
-            background: #93c5fd;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        /* Spinner Animation */
-        .spinner {
-            display: none;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top-color: var(--white);
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        /* CSS khusus untuk print */
+        @media print {
+            body { background: white; }
+            .hero, .btn, footer { display: none !important; }
+            .card { box-shadow: none; border: none; padding: 0; }
+            .bukti-container { border: 1px solid #000; }
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <div class="header">
-            <h2>Pendaftaran SPMB</h2>
-            <p>Silakan lengkapi data diri Anda di bawah ini</p>
+<div class="container">
+
+    <div id="sec-landing" class="section active">
+        <div class="hero">
+            <h1>MIS Baiturrahman</h1>
+            <p class="tagline">"Care, Creative and Islamic Generation"</p>
+            <p style="margin-bottom: 20px;">Selamat datang di portal Seleksi Penerimaan Murid Baru Tahun 2026.</p>
+            <button class="btn btn-large" onclick="showSection('sec-akun')">Daftar Sekarang</button>
         </div>
-
-        <form id="spmbForm">
-            <div class="form-group">
-                <label for="nama">Nama Lengkap</label>
-                <input type="text" id="nama" class="form-control" placeholder="Masukkan nama lengkap" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="noHp">Nomor WhatsApp</label>
-                <input type="tel" id="noHp" class="form-control" placeholder="Contoh: 08123456789" required>
-            </div>
-
-            <button type="submit" id="btnSubmit" class="btn-submit">
-                <span class="spinner" id="spinner"></span>
-                <span id="btnText">Daftar Sekarang</span>
-            </button>
-        </form>
     </div>
 
-    <script>
-        const GAS_URL = "https://script.google.com/macros/s/AKfycbxG_cdMwGHa72iJx2z_bqcHcN1JsffLRwWChEKiuUSbj5CpWhcXTnr85mFD2hGIUkkKNw/exec";
+    <div id="sec-akun" class="section">
+        <div class="card">
+            <div class="header">
+                <h2>Pendaftaran Tahap 1</h2>
+                <p>Buat akun pendaftaran Anda terlebih dahulu</p>
+            </div>
+            <form id="formAkun">
+                <div class="form-group">
+                    <label for="namaAwal">Nama Lengkap Siswa</label>
+                    <input type="text" id="namaAwal" class="form-control" placeholder="Masukkan nama lengkap" required>
+                </div>
+                <div class="form-group">
+                    <label for="noHpAwal">Nomor WhatsApp Aktif</label>
+                    <input type="tel" id="noHpAwal" class="form-control" placeholder="Contoh: 08123456789" required>
+                </div>
+                <button type="submit" id="btnAkun" class="btn btn-primary">
+                    <span class="spinner" id="spinAkun"></span> <span id="txtAkun">Buat Akun Pendaftaran</span>
+                </button>
+                <button type="button" class="btn btn-outline" onclick="showSection('sec-landing')">Kembali</button>
+            </form>
+        </div>
+    </div>
 
-        const form = document.getElementById('spmbForm');
-        const btnSubmit = document.getElementById('btnSubmit');
-        const spinner = document.getElementById('spinner');
-        const btnText = document.getElementById('btnText');
+    <div id="sec-lengkap" class="section">
+        <div class="card">
+            <div class="header">
+                <h2>Formulir Kelengkapan Data</h2>
+                <p>No Pendaftaran: <b id="lblNoDaftar" style="color:var(--primary)">-</b></p>
+            </div>
+            <form id="formLengkap">
+                <div class="form-group">
+                    <label for="tempatLahir">Tempat Lahir</label>
+                    <input type="text" id="tempatLahir" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="tglLahir">Tanggal Lahir</label>
+                    <input type="date" id="tglLahir" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="alamat">Alamat Lengkap</label>
+                    <textarea id="alamat" class="form-control" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="asalSekolah">Asal Sekolah (TK/RA)</label>
+                    <input type="text" id="asalSekolah" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="namaWali">Nama Orang Tua / Wali</label>
+                    <input type="text" id="namaWali" class="form-control" required>
+                </div>
+                <button type="submit" id="btnLengkap" class="btn btn-primary">
+                    <span class="spinner" id="spinLengkap"></span> <span id="txtLengkap">Simpan & Selesaikan Pendaftaran</span>
+                </button>
+            </form>
+        </div>
+    </div>
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
+    <div id="sec-bukti" class="section">
+        <div class="card">
+            <div class="header">
+                <h2 style="color:var(--text-dark)">Bukti Pendaftaran SPMB</h2>
+                <p>MIS Baiturrahman - Care, Creative and Islamic Generation</p>
+            </div>
+            
+            <div class="bukti-container">
+                <h3 style="text-align:center; margin-bottom:15px; color:var(--primary);">Pendaftaran Berhasil!</h3>
+                <div class="bukti-row"><span>No. Pendaftaran</span> <span id="bNoDaftar">-</span></div>
+                <div class="bukti-row"><span>Nama Lengkap</span> <span id="bNama">-</span></div>
+                <div class="bukti-row"><span>Tempat, Tgl Lahir</span> <span id="bTTL">-</span></div>
+                <div class="bukti-row"><span>Asal Sekolah</span> <span id="bAsal">-</span></div>
+                <div class="bukti-row"><span>Nama Wali</span> <span id="bWali">-</span></div>
+                <div class="bukti-row"><span>Status Data</span> <span style="color:green;">✔ Lengkap</span></div>
+            </div>
 
-            const nama = document.getElementById('nama').value.trim();
-            const noHp = document.getElementById('noHp').value.trim();
+            <p style="text-align:center; font-size:13px; color:var(--text-muted); margin-bottom: 20px;">
+                Silakan cetak atau screenshot bukti pendaftaran ini dan tunjukkan kepada panitia saat daftar ulang.
+            </p>
 
-            if (!nama || !noHp) {
+            <button onclick="window.print()" class="btn btn-primary">🖨️ Cetak / Simpan PDF</button>
+            <button onclick="location.reload()" class="btn btn-outline">Selesai</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // MASUKKAN URL GOOGLE APPS SCRIPT ANDA DI SINI
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbxG_cdMwGHa72iJx2z_bqcHcN1JsffLRwWChEKiuUSbj5CpWhcXTnr85mFD2hGIUkkKNw/exec";
+
+    // Variabel Global untuk menyimpan data sementara
+    let globalNoDaftar = "";
+    let globalNama = "";
+
+    // Fungsi Navigasi Antar Section
+    function showSection(sectionId) {
+        document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+        document.getElementById(sectionId).classList.add('active');
+    }
+
+    // ==========================================
+    // SUBMIT TAHAP 1: BUAT AKUN
+    // ==========================================
+    document.getElementById('formAkun').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const nama = document.getElementById('namaAwal').value.trim();
+        const noHp = document.getElementById('noHpAwal').value.trim();
+        globalNama = nama; // Simpan ke global untuk ditampilkan di bukti nanti
+
+        const btn = document.getElementById('btnAkun');
+        const spinner = document.getElementById('spinAkun');
+        const txt = document.getElementById('txtAkun');
+
+        btn.disabled = true; spinner.style.display = 'inline-block'; txt.textContent = 'Memproses...';
+
+        try {
+            const response = await fetch(GAS_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify({ action: 'register', nama: nama, noHp: noHp })
+            });
+
+            const result = await response.json();
+
+            if (result.status === 'success') {
+                globalNoDaftar = result.noDaftar;
+                document.getElementById('lblNoDaftar').textContent = globalNoDaftar; // Tampilkan di form 2
+                
                 Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Nama dan Nomor WhatsApp wajib diisi!',
-                    confirmButtonColor: '#2563eb'
+                    icon: 'success',
+                    title: 'Akun Dibuat!',
+                    text: 'Silakan lanjutkan mengisi data kelengkapan.',
+                    confirmButtonColor: '#10b981'
+                }).then(() => {
+                    showSection('sec-lengkap'); // Pindah ke form kelengkapan
                 });
-                return;
+            } else {
+                throw new Error(result.message);
             }
+        } catch (error) {
+            Swal.fire('Error', error.message, 'error');
+        } finally {
+            btn.disabled = false; spinner.style.display = 'none'; txt.textContent = 'Buat Akun Pendaftaran';
+        }
+    });
 
-            btnSubmit.disabled = true;
-            spinner.style.display = 'inline-block';
-            btnText.textContent = 'Mengirim data...';
+    // ==========================================
+    // SUBMIT TAHAP 2: LENGKAPI DATA
+    // ==========================================
+    document.getElementById('formLengkap').addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-            try {
-                const response = await fetch(GAS_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'text/plain;charset=utf-8',
-                    },
-                    body: JSON.stringify({ nama: nama, noHp: noHp })
-                });
+        const dataPelengkap = {
+            action: 'complete',
+            noDaftar: globalNoDaftar,
+            tempatLahir: document.getElementById('tempatLahir').value.trim(),
+            tglLahir: document.getElementById('tglLahir').value,
+            alamat: document.getElementById('alamat').value.trim(),
+            asalSekolah: document.getElementById('asalSekolah').value.trim(),
+            namaWali: document.getElementById('namaWali').value.trim()
+        };
 
-                const result = await response.json();
+        const btn = document.getElementById('btnLengkap');
+        const spinner = document.getElementById('spinLengkap');
+        const txt = document.getElementById('txtLengkap');
 
-                if (result.status === 'success') {
-                    form.reset();
-                    
-                    // --- PERUBAHAN UTAMA ADA DI SINI ---
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Pendaftaran Berhasil!',
-                        html: `No Pendaftaran: <b>${result.noDaftar}</b><br><br>Cek WhatsApp Anda untuk konfirmasi 📲`,
-                        confirmButtonColor: '#2563eb',
-                        confirmButtonText: 'Lanjut ke Menu Berikutnya ➡️',
-                        allowOutsideClick: false // Mencegah user menutup popup dengan klik di luar
-                    }).then((alertResult) => {
-                        // Jika tombol "Lanjut" diklik
-                        if (alertResult.isConfirmed) {
-                            
-                            // GANTI URL INI dengan URL menu selanjutnya Anda
-                            // Contoh: upload-berkas.html, dashboard.html, dll.
-                            const urlMenuSelanjutnya = "dashboard.html"; 
-                            
-                            // Redirect sambil membawa parameter No Pendaftaran
-                            window.location.href = `${urlMenuSelanjutnya}?noDaftar=${result.noDaftar}`;
-                        }
-                    });
-                    // -----------------------------------
+        btn.disabled = true; spinner.style.display = 'inline-block'; txt.textContent = 'Menyimpan...';
 
-                } else {
-                    throw new Error(result.message);
-                }
+        try {
+            const response = await fetch(GAS_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify(dataPelengkap)
+            });
 
-            } catch (error) {
+            const result = await response.json();
+
+            if (result.status === 'success') {
+                // Isi data di halaman Bukti Pendaftaran
+                document.getElementById('bNoDaftar').textContent = globalNoDaftar;
+                document.getElementById('bNama').textContent = globalNama;
+                document.getElementById('bTTL').textContent = `${dataPelengkap.tempatLahir}, ${dataPelengkap.tglLahir}`;
+                document.getElementById('bAsal').textContent = dataPelengkap.asalSekolah;
+                document.getElementById('bWali').textContent = dataPelengkap.namaWali;
+
                 Swal.fire({
-                    icon: 'error',
-                    title: 'Gagal Tersimpan',
-                    text: 'Terjadi kesalahan sistem: ' + error.message,
-                    confirmButtonColor: '#2563eb'
+                    icon: 'success',
+                    title: 'Pendaftaran Selesai!',
+                    text: 'Data Anda telah tersimpan dengan aman.',
+                    confirmButtonColor: '#10b981'
+                }).then(() => {
+                    showSection('sec-bukti'); // Tampilkan bukti
                 });
-            } finally {
-                btnSubmit.disabled = false;
-                spinner.style.display = 'none';
-                btnText.textContent = 'Daftar Sekarang';
+            } else {
+                throw new Error(result.message);
             }
-        });
-    </script>
+        } catch (error) {
+            Swal.fire('Error', 'Gagal menyimpan kelengkapan: ' + error.message, 'error');
+        } finally {
+            btn.disabled = false; spinner.style.display = 'none'; txt.textContent = 'Simpan & Selesaikan Pendaftaran';
+        }
+    });
+</script>
 </body>
 </html>
