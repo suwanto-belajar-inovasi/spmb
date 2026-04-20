@@ -11,17 +11,12 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Penerimaan Siswa Madrasah Baru MIS Baiturrahman Gubeng - SPMB 2026</title>
-    <meta name="description" content="Penerimaan Siswa Madrasah Baru (SPMB) Tahun 2026 di MIS Baiturrahman Gubeng Surabaya. Sekolah Islam berprestasi dengan visi Care, Creative and Islamic Generation. Daftar segera, kuota terbatas!">
-    <meta name="keywords" content="penerimaan siswa madrasah baru, pendaftaran SD Islam Surabaya, madrasah ibtidaiyah surabaya, MIS Baiturrahman Gubeng, sekolah islam terbaik, SPMB 2026, pendidikan islam surabaya">
-    <meta name="author" content="MIS Baiturrahman Gubeng">
-    <meta name="robots" content="index, follow">
-    
-    <link rel="icon" href="https://lh3.googleusercontent.com/d/1rVC6I82ii14tPWayJ7BwPcG_ml0XmYWR" type="image/jpeg">
-
+    <title>Penerimaan Siswa Madrasah Baru MIS Baiturrahman Gubeng - SPMB 2026/2027</title>
+    <meta name="description" content="Penerimaan Siswa Madrasah Baru (SPMB) Tahun 2026/2027 di MIS Baiturrahman Gubeng Surabaya.">
+    <link rel="icon" href="https://lh3.googleusercontent.com/d/18e1v76BALeQYgi3J4cvN5KE94tdBcR4W" type="image/jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <style>
         :root {
             --primary-blue: #002858;
@@ -33,146 +28,113 @@
 
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); }
 
-        /* Top Bar */
+        /* Top Bar & Header (Tetap Sama) */
         .top-bar { background-color: #C8A2C8; color: white; padding: 10px 5%; font-size: 14px; display: flex; justify-content: space-between; align-items: center; }
         .top-bar a { color: white; text-decoration: none; margin-left: 15px; }
-        .top-bar i { margin-right: 5px; }
-
-        /* Header / Navbar */
         .header { background-color: #ffffff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
         .logo-section { display: flex; align-items: center; cursor: pointer; }
-        .logo-section img { height: 40px; width: auto; margin-right: 15px; }
+        .logo-section img { height: 40px; margin-right: 15px; }
         .logo-section h1 { font-size: 24px; color: var(--primary-blue); margin: 0; }
-
-        /* Menu Navigasi */
         .nav-menu ul { list-style: none; margin: 0; padding: 0; display: flex; }
-        .nav-menu > ul > li { position: relative; margin-left: 25px; }
+        .nav-menu > ul > li { margin-left: 25px; }
         .nav-menu a { text-decoration: none; color: #333; font-weight: 600; padding: 10px 0; display: block; cursor: pointer;}
         .nav-menu a:hover, .nav-menu a.active-page { color: var(--accent-orange); }
 
-        /* SPA Section Control */
+        /* SPA Control */
         .section { display: none; animation: fadeIn 0.5s ease-in-out; }
         .section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Hero Section */
-        .hero { background-color: #e0e0e0; color: var(--primary-blue); padding: 80px 5%; text-align: center; background-image: url('https://lh3.googleusercontent.com/d/1rVC6I82ii14tPWayJ7BwPcG_ml0XmYWR'); background-size: cover; background-position: center; min-height: 450px; display: flex; align-items: center; justify-content: center; flex-direction: column; position: relative;}
-        .hero::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 40, 88, 0.3); } /* Overlay gelap agar teks terbaca */
-        .hero-content { background-color: rgba(255, 255, 255, 0.95); padding: 40px 50px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); position: relative; z-index: 2; max-width: 800px; }
-        .hero h2 { font-size: 38px; margin: 0; color: var(--primary-blue); font-weight: bold;}
-        .hero p.tagline { font-size: 20px; margin-top: 10px; font-style: italic; color: #555;}
-        
-        /* Urgency Text & Pulse Button */
+        /* Hero & Pulse */
+        .hero { background-color: #e0e0e0; padding: 80px 5%; text-align: center; background-image: url('https://lh3.googleusercontent.com/d/1rVC6I82ii14tPWayJ7BwPcG_ml0XmYWR'); background-size: cover; background-position: center; min-height: 400px; display: flex; align-items: center; justify-content: center; position: relative;}
+        .hero::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 40, 88, 0.4); }
+        .hero-content { background-color: rgba(255, 255, 255, 0.95); padding: 40px 50px; border-radius: 12px; position: relative; z-index: 2; max-width: 800px; }
+        .hero h2 { font-size: 38px; margin: 0; color: var(--primary-blue); }
         .urgency-box { background: #fff3e0; border: 2px dashed var(--accent-orange); padding: 15px; border-radius: 8px; margin: 25px 0; }
-        .urgency-box h3 { color: #d84315; margin: 0 0 5px 0; font-size: 20px; }
-        .urgency-box p { margin: 0; color: #424242; font-size: 15px; }
-
+        .urgency-box h3 { color: #d84315; margin: 0 0 5px 0; }
+        
         @keyframes pulse-animation {
             0% { box-shadow: 0 0 0 0 rgba(253, 83, 8, 0.7); transform: scale(1); }
             50% { box-shadow: 0 0 0 15px rgba(253, 83, 8, 0); transform: scale(1.05); }
             100% { box-shadow: 0 0 0 0 rgba(253, 83, 8, 0); transform: scale(1); }
         }
-        .btn-pulse { animation: pulse-animation 2s infinite; font-size: 20px !important; padding: 18px 40px !important; }
+        .btn-pulse { animation: pulse-animation 2s infinite; font-size: 18px !important; padding: 16px 35px !important; }
 
         /* Buttons */
-        .btn { padding: 14px 24px; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: 0.2s ease; display: inline-flex; justify-content: center; align-items: center; gap: 8px; }
+        .btn { padding: 14px 24px; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; display: inline-flex; justify-content: center; align-items: center; gap: 8px; transition: 0.2s; }
         .btn-orange { background: var(--accent-orange); }
-        .btn-orange:hover:not(:disabled) { background: #e04604; transform: translateY(-2px); }
         .btn-blue { background: var(--primary-blue); width: 100%;}
-        .btn-blue:hover:not(:disabled) { background: #001f46; transform: translateY(-2px); }
         .btn-outline { background: transparent; border: 2px solid var(--primary-blue); color: var(--primary-blue); width: 100%; margin-top: 10px;}
-        .btn-outline:hover { background: var(--primary-blue); color: white; }
-        .btn-large { border-radius: 50px; text-transform: uppercase; letter-spacing: 1px; }
-        .btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; animation: none; }
+        .btn:disabled { opacity: 0.7; cursor: not-allowed; animation: none; }
 
-        /* Sambutan Section */
+        /* Forms Layout */
         .main-content { padding: 50px 5%; max-width: 1200px; margin: 0 auto;}
-        .sambutan-section { display: flex; gap: 30px; align-items: flex-start; padding: 30px; background-color: white; box-shadow: 0 0 15px rgba(0,0,0,0.05); border-radius: 12px; flex-wrap: wrap; margin-bottom: 40px;}
-        .kepala-madrasah-photo { flex: 0 0 250px; text-align: center; }
-        .kepala-madrasah-photo img { width: 100%; max-width: 250px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .sambutan-text { flex: 1; min-width: 300px; }
-        .sambutan-text h2 { color: var(--primary-blue); margin-top: 0;}
-        .sambutan-text ul { padding-left: 20px; }
-        .sambutan-text li { margin-bottom: 10px; line-height: 1.6; }
-
-        /* Form Pendaftaran Styles */
-        .form-container { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); }
+        .form-container { max-width: 700px; margin: 0 auto; background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); }
         .form-header { text-align: center; margin-bottom: 24px; }
-        .form-header h2 { color: var(--primary-blue); font-size: 28px; margin-bottom: 8px; }
-        .form-header p { color: #666; }
+        .form-header h2 { color: var(--primary-blue); margin-bottom: 8px; }
+        
+        .row { display: flex; gap: 15px; flex-wrap: wrap; }
+        .col { flex: 1; min-width: 200px; }
+        
         .form-group { margin-bottom: 20px; text-align: left; }
-        .form-group label { display: block; margin-bottom: 6px; font-size: 14px; font-weight: 600; color: var(--primary-blue);}
-        .form-control { width: 100%; padding: 12px 16px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 15px; background-color: #f9fafb; transition: all 0.3s ease; box-sizing: border-box;}
-        .form-control:focus { outline: none; border-color: var(--accent-orange); box-shadow: 0 0 0 3px rgba(253, 83, 8, 0.1); background-color: white; }
+        .form-group label { display: block; margin-bottom: 6px; font-weight: 600; color: var(--primary-blue);}
+        .form-control { width: 100%; padding: 12px 16px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 15px; box-sizing: border-box;}
+        .form-control:focus { outline: none; border-color: var(--accent-orange); }
 
-        /* Print Area (Bukti Daftar) */
-        .bukti-container { border: 2px dashed var(--primary-blue); padding: 20px; border-radius: 12px; margin-bottom: 20px; background: #fafafa;}
-        .bukti-row { display: flex; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom: 8px;}
-        .bukti-row span:first-child { font-weight: 600; color: #666; }
-        .bukti-row span:last-child { font-weight: bold; color: var(--primary-blue); text-align: right; }
+        /* Image Preview Box */
+        .foto-preview { width: 120px; height: 150px; border: 2px dashed #ccc; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-top: 10px; background: #f9f9f9; }
+        .foto-preview img { width: 100%; height: 100%; object-fit: cover; display: none; }
+
+        /* ================= KOP SURAT & PRINT STYLES ================= */
+        .print-area { display: none; background: white; padding: 20px; }
+        
+        .kop-surat { display: flex; align-items: center; border-bottom: 4px solid black; padding-bottom: 15px; margin-bottom: 20px; text-align: center;}
+        .kop-surat img { width: 90px; height: auto; }
+        .kop-teks { flex: 1; }
+        .kop-teks h3 { margin: 0; font-size: 18px; color: #333; }
+        .kop-teks h1 { margin: 5px 0; font-size: 26px; color: var(--primary-blue); font-weight: bold; }
+        .kop-teks p { margin: 2px 0; font-size: 14px; }
+        .kop-surat-garis-tipis { border-top: 1px solid black; margin-top: -18px; margin-bottom: 20px; }
+
+        .print-title { text-align: center; margin-bottom: 30px; text-decoration: underline; font-size: 20px; font-weight: bold; }
+        
+        .data-siswa-table { width: 100%; border-collapse: collapse; font-size: 16px;}
+        .data-siswa-table td { padding: 8px 5px; vertical-align: top; }
+        .data-siswa-table td:first-child { width: 200px; font-weight: bold; }
+        .data-siswa-table td:nth-child(2) { width: 20px; text-align: center; }
+
+        .foto-print-box { width: 3cm; height: 4cm; border: 1px solid #333; margin: 20px auto; padding: 3px; }
+        .foto-print-box img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .print-ttd { margin-top: 40px; display: flex; justify-content: space-between; text-align: center; }
 
         .spinner { display: none; width: 20px; height: 20px; border: 3px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: currentColor; animation: spin 1s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* Footer */
-        .footer { background-color: var(--primary-blue); color: white; padding: 40px 5%; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
-        .footer h4 { color: var(--accent-orange); margin-top: 0; margin-bottom: 15px; font-size: 18px; }
-        .footer a, .footer p { color: #ccc; text-decoration: none; font-size: 15px; line-height: 1.6; }
-        .footer a:hover { color: white; }
-        .footer-column { flex: 1; min-width: 250px; }
-        .copyright { background-color: #001f46; color: #aaa; text-align: center; padding: 15px 5%; font-size: 14px; }
-
-        /* Responsif */
-        @media (max-width: 768px) {
-            .top-bar, .header { flex-direction: column; text-align: center; }
-            .nav-menu ul { flex-direction: column; width: 100%; margin-top: 15px;}
-            .nav-menu > ul > li { margin: 0; }
-            .sambutan-section { flex-direction: column; }
-            .kepala-madrasah-photo { flex: 0 0 auto; margin: 0 auto 20px auto; }
-            .form-container { padding: 20px; }
-            .hero-content { padding: 30px 20px; }
-            .hero h2 { font-size: 28px; }
-            .btn-pulse { padding: 15px 25px !important; font-size: 16px !important; }
+        /* Print Media Query */
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .top-bar, .header, .footer, .copyright, .btn-outline, .btn-blue { display: none !important; }
+            .section { display: none !important; }
+            #sec-bukti { display: block !important; }
+            .form-container { box-shadow: none; border: none; padding: 0; max-width: 100%; }
+            .form-header, .bukti-container, .print-btn-area { display: none !important; }
+            .print-area { display: block !important; }
         }
 
-        /* Print CSS */
-        @media print {
-            body { background: white; }
-            .top-bar, .header, .footer, .copyright, .btn-outline { display: none !important; }
-            .form-container { box-shadow: none; border: none; padding: 0; max-width: 100%;}
-            .bukti-container { border: 1px solid #000; }
-            .btn-blue { display: none; }
+        @media (max-width: 768px) {
+            .kop-teks h1 { font-size: 20px; }
+            .kop-surat img { width: 70px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <div class="address">
-            <i class="fa-solid fa-location-dot"></i> Jl. Juwingan 1 B Surabaya
-        </div>
-        <div class="social-media">
-            <a href="https://web.facebook.com/misbaiturrahmangubeng" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
-            <a href="https://www.instagram.com/misbaiturrahmangubeng/" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
-            <a href="https://wa.me/6285745686831" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-            <a href="http://youtube.com/@misbaiturrahmangubeng" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a>
-        </div>
-    </div>
-
     <header class="header">
         <div class="logo-section" onclick="showSection('sec-landing')">
-            <img src="https://lh3.googleusercontent.com/d/18e1v76BALeQYgi3J4cvN5KE94tdBcR4W" alt="Logo MIS Baiturrahman">
+            <img src="https://lh3.googleusercontent.com/d/18e1v76BALeQYgi3J4cvN5KE94tdBcR4W" alt="Logo">
             <h1>MIS Baiturrahman</h1>
         </div>
-        
-        <nav class="nav-menu">
-            <ul>
-                <li><a onclick="showSection('sec-landing')" class="active-page" id="nav-beranda">BERANDA</a></li>
-                <li><a href="https://sites.google.com/view/misbaiturrahmangubeng/profile">PROFILE SEKOLAH</a></li>
-                <li><a href="https://sites.google.com/view/misbaiturrahmangubeng/kegiatansiswa">KEGIATAN SISWA</a></li>
-                <li><a onclick="showSection('sec-akun')" id="nav-spmb" style="color: var(--accent-orange); font-weight: bold;">SPMB 2026</a></li>
-            </ul>
-        </nav>
     </header>
 
     <div class="main-content">
@@ -180,58 +142,38 @@
         <div id="sec-landing" class="section active">
             <section class="hero">
                 <div class="hero-content">
-                    <h2>Penerimaan Siswa Madrasah Baru 2026</h2>
-                    <p class="tagline">MIS Baiturrahman Gubeng - "Care, Creative and Islamic Generation"</p>
-                    
+                    <h2>Penerimaan Siswa Madrasah Baru 2026/2027</h2>
+                    <p>MIS Baiturrahman Gubeng - "Care, Creative and Islamic Generation"</p>
                     <div class="urgency-box">
                         <h3>🔥 Segera Daftarkan Putra-Putri Anda! 🔥</h3>
-                        <p>Pendaftaran Gelombang 1 segera ditutup. Pastikan Ananda mendapatkan kursi di madrasah berprestasi kami. Kuota sangat terbatas!</p>
+                        <p>Daftar sekarang untuk amankan kuota pendaftaran Gelombang 1.</p>
                     </div>
-
-                    <button class="btn btn-orange btn-large btn-pulse" onclick="showSection('sec-akun')">
+                    <button class="btn btn-orange btn-pulse" onclick="showSection('sec-akun')">
                         <i class="fa-solid fa-user-plus"></i> Daftar SPMB Sekarang!
                     </button>
                 </div>
             </section>
-            
-            <div class="sambutan-section">
-                <div class="kepala-madrasah-photo">
-                    <img src="https://lh3.googleusercontent.com/d/13mwILXDM8PN77a8tUkaPLv9RH5yxjXIl" alt="Foto Kepala Madrasah MIS Baiturrahman">
-                </div>
-                <div class="sambutan-text">
-                    <h2>Sambutan Kepala Madrasah</h2>
-                    <p>Assalamu'alaikum Warahmatullahi Wabarakatuh.</p>
-                    <p>Selamat datang di laman resmi MIS Baiturrahman Gubeng. Kami bangga mempersembahkan institusi pendidikan yang berpegang teguh pada visi "Care, Creative and Islamic Generation."</p>
-                    <p>Visi ini adalah komitmen kami untuk mencetak generasi unggul yang memiliki tiga pilar utama:</p>
-                    <ul>
-                        <li><b>Care (Peduli):</b> Kepekaan sosial, empati, dan tanggung jawab terhadap lingkungan.</li>
-                        <li><b>Creative (Kreatif):</b> Berpikir inovatif dan mampu memecahkan masalah di era digital.</li>
-                        <li><b>Islamic Generation:</b> Memiliki keimanan yang kuat, rajin beribadah, dan berakhlak mulia.</li>
-                    </ul>
-                    <p>Mari bersama-sama membangun masa depan cerah bagi putra-putri kita di MIS Baiturrahman Gubeng.</p>
-                </div>
-            </div>
         </div>
 
         <div id="sec-akun" class="section">
             <div class="form-container">
                 <div class="form-header">
-                    <h2>Pendaftaran SPMB Tahap 1</h2>
-                    <p>Buat akun pendaftaran Anda terlebih dahulu</p>
+                    <h2>Formulir Pendaftaran Tahap 1</h2>
+                    <p>Buat akun pendaftaran terlebih dahulu</p>
                 </div>
                 <form id="formAkun">
                     <div class="form-group">
-                        <label for="namaAwal">Nama Lengkap Siswa</label>
-                        <input type="text" id="namaAwal" class="form-control" placeholder="Masukkan nama lengkap anak" required>
+                        <label>Nama Lengkap Siswa</label>
+                        <input type="text" id="namaAwal" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="noHpAwal">Nomor WhatsApp Aktif (Orang Tua/Wali)</label>
-                        <input type="tel" id="noHpAwal" class="form-control" placeholder="Contoh: 08123456789" required>
+                        <label>Nomor WhatsApp (Orang Tua)</label>
+                        <input type="tel" id="noHpAwal" class="form-control" required>
                     </div>
-                    <button type="submit" id="btnAkun" class="btn btn-blue" style="padding: 16px; font-size: 16px;">
-                        <span class="spinner" id="spinAkun"></span> <span id="txtAkun">Buat Akun Pendaftaran</span>
+                    <button type="submit" id="btnAkun" class="btn btn-blue">
+                        <span class="spinner" id="spinAkun"></span> <span id="txtAkun">Lanjutkan Pendaftaran</span>
                     </button>
-                    <button type="button" class="btn btn-outline" onclick="showSection('sec-landing')">Kembali ke Beranda</button>
+                    <button type="button" class="btn btn-outline" onclick="showSection('sec-landing')">Batal</button>
                 </form>
             </div>
         </div>
@@ -239,32 +181,63 @@
         <div id="sec-lengkap" class="section">
             <div class="form-container">
                 <div class="form-header">
-                    <h2>Formulir Kelengkapan Data</h2>
+                    <h2>Formulir Kelengkapan Siswa</h2>
                     <p>No Pendaftaran: <b id="lblNoDaftar" style="color:var(--accent-orange)">-</b></p>
                 </div>
                 <form id="formLengkap">
-                    <div class="form-group">
-                        <label for="tempatLahir">Tempat Lahir</label>
-                        <input type="text" id="tempatLahir" class="form-control" required>
+                    
+                    <div class="row">
+                        <div class="col form-group">
+                            <label>NISN</label>
+                            <input type="text" id="nisn" class="form-control" placeholder="Isi angka NISN" required>
+                        </div>
+                        <div class="col form-group">
+                            <label>Jenis Kelamin</label>
+                            <select id="jk" class="form-control" required>
+                                <option value="">-- Pilih --</option>
+                                <option value="Laki-laki">Laki-laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="tglLahir">Tanggal Lahir</label>
-                        <input type="date" id="tglLahir" class="form-control" required>
+
+                    <div class="row">
+                        <div class="col form-group">
+                            <label>Tempat Lahir</label>
+                            <input type="text" id="tempatLahir" class="form-control" required>
+                        </div>
+                        <div class="col form-group">
+                            <label>Tanggal Lahir</label>
+                            <input type="date" id="tglLahir" class="form-control" required>
+                        </div>
                     </div>
+
                     <div class="form-group">
-                        <label for="alamat">Alamat Lengkap</label>
-                        <textarea id="alamat" class="form-control" rows="3" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="asalSekolah">Asal Sekolah (TK/RA)</label>
+                        <label>Asal Sekolah (TK/RA)</label>
                         <input type="text" id="asalSekolah" class="form-control" required>
                     </div>
+
                     <div class="form-group">
-                        <label for="namaWali">Nama Orang Tua / Wali</label>
+                        <label>Nama Orang Tua / Wali Lengkap</label>
                         <input type="text" id="namaWali" class="form-control" required>
                     </div>
-                    <button type="submit" id="btnLengkap" class="btn btn-blue" style="padding: 16px; font-size: 16px;">
-                        <span class="spinner" id="spinLengkap"></span> <span id="txtLengkap">Simpan & Selesaikan Pendaftaran</span>
+
+                    <div class="form-group">
+                        <label>Alamat Lengkap</label>
+                        <textarea id="alamat" class="form-control" rows="2" required></textarea>
+                    </div>
+
+                    <div class="form-group" style="background: #f0f8ff; padding: 15px; border-radius: 8px;">
+                        <label>Upload Pas Foto Siswa (Max 2MB)</label>
+                        <input type="file" id="fotoFile" class="form-control" accept="image/*" required>
+                        <div class="foto-preview">
+                            <img id="previewImage" src="" alt="Preview Foto">
+                            <span id="previewText" style="font-size:12px; color:#999; text-align:center; padding:10px;">Belum ada foto</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="btnLengkap" class="btn btn-blue" style="padding: 16px;">
+                        <span class="spinner" id="spinLengkap"></span> <span id="txtLengkap">Simpan Data & Cetak Bukti</span>
                     </button>
                 </form>
             </div>
@@ -272,74 +245,113 @@
 
         <div id="sec-bukti" class="section">
             <div class="form-container">
-                <div class="form-header">
-                    <h2>Bukti Pendaftaran SPMB</h2>
-                    <p>MIS Baiturrahman - Care, Creative and Islamic Generation</p>
-                </div>
                 
-                <div class="bukti-container">
-                    <h3 style="text-align:center; margin-bottom:20px; color:var(--accent-orange);">Pendaftaran Berhasil!</h3>
-                    <div class="bukti-row"><span>No. Pendaftaran</span> <span id="bNoDaftar">-</span></div>
-                    <div class="bukti-row"><span>Nama Lengkap</span> <span id="bNama">-</span></div>
-                    <div class="bukti-row"><span>Tempat, Tgl Lahir</span> <span id="bTTL">-</span></div>
-                    <div class="bukti-row"><span>Asal Sekolah</span> <span id="bAsal">-</span></div>
-                    <div class="bukti-row"><span>Nama Wali</span> <span id="bWali">-</span></div>
-                    <div class="bukti-row"><span>Status Data</span> <span style="color:green;">✔ Lengkap</span></div>
+                <div class="print-btn-area text-center" style="text-align: center; margin-bottom: 20px;">
+                    <i class="fa-solid fa-circle-check" style="font-size: 50px; color: green; margin-bottom: 15px;"></i>
+                    <h2 style="color:var(--primary-blue);">Pendaftaran Berhasil Disimpan!</h2>
+                    <p style="color:#666; margin-bottom:20px;">Silakan klik tombol di bawah ini untuk mengunduh atau mencetak Bukti Pendaftaran Resmi Anda.</p>
+                    <button onclick="window.print()" class="btn btn-orange" style="padding: 15px 30px; font-size: 18px;">
+                        <i class="fa-solid fa-print"></i> Cetak Bukti Pendaftaran
+                    </button>
+                    <button onclick="location.reload()" class="btn btn-outline">Selesai</button>
                 </div>
 
-                <p style="text-align:center; font-size:14px; color:#666; margin-bottom: 25px;">
-                    Silakan cetak atau <i>screenshot</i> bukti pendaftaran ini dan tunjukkan kepada panitia saat daftar ulang. Notifikasi WhatsApp juga telah dikirim ke nomor Anda.
-                </p>
+                <div class="print-area">
+                    <div class="kop-surat">
+                        <img src="https://lh3.googleusercontent.com/d/18e1v76BALeQYgi3J4cvN5KE94tdBcR4W" alt="Logo">
+                        <div class="kop-teks">
+                            <h3>YAYASAN PENDIDIKAN BAITURRAHMAN</h3>
+                            <h1>MADRASAH IBTIDAIYAH (MIS) BAITURRAHMAN</h1>
+                            <p>Status: Terakreditasi B | NSM: 111235780024 | NPSN: 20507342</p>
+                            <p>Jl. Juwingan 1 B Surabaya, Jawa Timur | Telp: 085745686831</p>
+                        </div>
+                    </div>
+                    <div class="kop-surat-garis-tipis"></div>
 
-                <button onclick="window.print()" class="btn btn-blue" style="padding: 14px; margin-bottom: 10px;">🖨️ Cetak / Simpan PDF</button>
-                <button onclick="location.reload()" class="btn btn-outline">Selesai & Kembali ke Beranda</button>
-            </div>
+                    <div class="print-title">BUKTI PENDAFTARAN CALON SISWA BARU<br>TAHUN PELAJARAN 2026/2027</div>
+
+                    <table class="data-siswa-table">
+                        <tr><td>No. Pendaftaran</td><td>:</td><td><b id="pNoDaftar">-</b></td></tr>
+                        <tr><td>Tanggal Daftar</td><td>:</td><td id="pTglDaftar">-</td></tr>
+                        <tr><td colspan="3"><hr style="border:0; border-top:1px dashed #ccc;"></td></tr>
+                        <tr><td>Nama Lengkap Siswa</td><td>:</td><td id="pNama">-</td></tr>
+                        <tr><td>NISN</td><td>:</td><td id="pNisn">-</td></tr>
+                        <tr><td>Jenis Kelamin</td><td>:</td><td id="pJk">-</td></tr>
+                        <tr><td>Tempat, Tanggal Lahir</td><td>:</td><td id="pTTL">-</td></tr>
+                        <tr><td>Asal Sekolah (TK/RA)</td><td>:</td><td id="pAsal">-</td></tr>
+                        <tr><td>Nama Orang Tua/Wali</td><td>:</td><td id="pWali">-</td></tr>
+                        <tr><td>Alamat Lengkap</td><td>:</td><td id="pAlamat">-</td></tr>
+                    </table>
+
+                    <div style="display:flex; justify-content: space-between; margin-top:30px;">
+                        <div class="foto-print-box">
+                            <img id="pFotoImage" src="" alt="Foto Siswa">
+                        </div>
+                        
+                        <div class="print-ttd">
+                            <div>
+                                <p>Surabaya, <span id="pTglTtd"></span></p>
+                                <p>Orang Tua / Wali Siswa</p>
+                                <br><br><br>
+                                <p><b>( <span id="pTtdNama">____________________</span> )</b></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p style="font-size: 12px; margin-top: 30px; border-top: 1px solid #333; padding-top: 5px;">
+                        <i>* Catatan: Bawa bukti pendaftaran ini beserta berkas persyaratan (Fotokopi KK, Akte Kelahiran, dll) pada saat daftar ulang.</i>
+                    </p>
+                </div> </div>
         </div>
 
-    </div> <footer class="footer">
-        <div class="footer-column about">
-            <h4>Tentang MIS Baiturrahman</h4>
-            <p>MIS Baiturrahman Gubeng adalah madrasah ibtidaiyah yang berkomitmen mencetak generasi Qur'ani yang unggul, berakhlak mulia, serta siap menghadapi tantangan masa depan dengan kreativitas dan kepedulian.</p>
-        </div>
-        <div class="footer-column">
-            <h4>Tautan Cepat</h4>
-            <p><a onclick="showSection('sec-landing')" style="cursor:pointer;">Beranda</a></p>
-            <p><a onclick="showSection('sec-akun')" style="cursor:pointer; color:var(--accent-orange); font-weight:bold;">Daftar SPMB 2026</a></p>
-            <p><a href="https://wa.me/6285745686831">Kontak Kami</a></p>
-        </div>
-        <div class="footer-column">
-            <h4>Hubungi Kami</h4>
-            <div class="contact-info">
-                <p><i class="fa-solid fa-location-dot"></i> Jl. Juwingan 1 B Surabaya</p>
-                <p><i class="fa-solid fa-envelope"></i> mi.111235780024@gmail.com</p>
-                <p><i class="fa-solid fa-phone"></i> 085745686831 (Ustadzah Saras)</p>
-            </div>
-        </div>
-    </footer>
-
-    <div class="copyright">
-        © 2026 MIS Baiturrahman Gubeng. All Rights Reserved.
-    </div>
-
-    <script>
-        // MASUKKAN URL GOOGLE APPS SCRIPT ANDA DI SINI
+    </div> <script>
+        // MASUKKAN URL GOOGLE APPS SCRIPT BARU ANDA DI SINI
         const GAS_URL = "https://script.google.com/macros/s/AKfycbxG_cdMwGHa72iJx2z_bqcHcN1JsffLRwWChEKiuUSbj5CpWhcXTnr85mFD2hGIUkkKNw/exec";
 
         let globalNoDaftar = "";
         let globalNama = "";
+        
+        // Variabel untuk menampung file foto
+        let fileBase64 = "";
+        let fileName = "";
+        let fileMimeType = "";
 
         function showSection(sectionId) {
             document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
             document.getElementById(sectionId).classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            document.getElementById('nav-beranda').classList.remove('active-page');
-            if(sectionId === 'sec-landing') {
-                document.getElementById('nav-beranda').classList.add('active-page');
-            }
         }
 
-        // Submit Tahap 1
+        // --- SISTEM UPLOAD FOTO (KONVERSI KE BASE64) ---
+        document.getElementById('fotoFile').addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                // Validasi ukuran maksimal 2MB
+                if (file.size > 2 * 1024 * 1024) {
+                    Swal.fire('Terlalu Besar', 'Ukuran foto maksimal 2MB', 'error');
+                    this.value = '';
+                    return;
+                }
+                fileName = file.name;
+                fileMimeType = file.type;
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    fileBase64 = e.target.result.split(',')[1]; // Ambil data base64 saja
+                    
+                    // Tampilkan preview di form
+                    document.getElementById('previewImage').src = e.target.result;
+                    document.getElementById('previewImage').style.display = 'block';
+                    document.getElementById('previewText').style.display = 'none';
+                    
+                    // Siapkan juga untuk di halaman print
+                    document.getElementById('pFotoImage').src = e.target.result; 
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // ================= SUBMIT TAHAP 1 =================
         document.getElementById('formAkun').addEventListener('submit', async (e) => {
             e.preventDefault();
             const nama = document.getElementById('namaAwal').value.trim();
@@ -347,10 +359,7 @@
             globalNama = nama; 
 
             const btn = document.getElementById('btnAkun');
-            const spinner = document.getElementById('spinAkun');
-            const txt = document.getElementById('txtAkun');
-
-            btn.disabled = true; spinner.style.display = 'inline-block'; txt.textContent = 'Memproses...';
+            btn.disabled = true; document.getElementById('spinAkun').style.display = 'inline-block';
 
             try {
                 const response = await fetch(GAS_URL, {
@@ -360,41 +369,47 @@
                 });
 
                 const result = await response.json();
-
                 if (result.status === 'success') {
                     globalNoDaftar = result.noDaftar;
                     document.getElementById('lblNoDaftar').textContent = globalNoDaftar; 
-                    Swal.fire({
-                        icon: 'success', title: 'Akun Berhasil Dibuat!', text: 'Silakan lanjutkan mengisi data kelengkapan anak.', confirmButtonColor: '#002858'
-                    }).then(() => { showSection('sec-lengkap'); });
+                    showSection('sec-lengkap');
                 } else {
                     throw new Error(result.message);
                 }
             } catch (error) {
                 Swal.fire('Error', error.message, 'error');
             } finally {
-                btn.disabled = false; spinner.style.display = 'none'; txt.textContent = 'Buat Akun Pendaftaran';
+                btn.disabled = false; document.getElementById('spinAkun').style.display = 'none';
             }
         });
 
-        // Submit Tahap 2
+        // ================= SUBMIT TAHAP 2 (DENGAN FOTO) =================
         document.getElementById('formLengkap').addEventListener('submit', async (e) => {
             e.preventDefault();
+            
+            if(!fileBase64) {
+                Swal.fire('Peringatan', 'Silakan upload foto siswa terlebih dahulu!', 'warning');
+                return;
+            }
+
             const dataPelengkap = {
                 action: 'complete',
                 noDaftar: globalNoDaftar,
+                nisn: document.getElementById('nisn').value.trim(),
+                jk: document.getElementById('jk').value,
                 tempatLahir: document.getElementById('tempatLahir').value.trim(),
                 tglLahir: document.getElementById('tglLahir').value,
-                alamat: document.getElementById('alamat').value.trim(),
                 asalSekolah: document.getElementById('asalSekolah').value.trim(),
-                namaWali: document.getElementById('namaWali').value.trim()
+                namaWali: document.getElementById('namaWali').value.trim(),
+                alamat: document.getElementById('alamat').value.trim(),
+                fotoBase64: fileBase64,
+                fotoName: fileName,
+                fotoMimeType: fileMimeType
             };
 
             const btn = document.getElementById('btnLengkap');
-            const spinner = document.getElementById('spinLengkap');
-            const txt = document.getElementById('txtLengkap');
-
-            btn.disabled = true; spinner.style.display = 'inline-block'; txt.textContent = 'Menyimpan...';
+            btn.disabled = true; document.getElementById('spinLengkap').style.display = 'inline-block';
+            document.getElementById('txtLengkap').textContent = 'Mengunggah Data & Foto...';
 
             try {
                 const response = await fetch(GAS_URL, {
@@ -406,14 +421,21 @@
                 const result = await response.json();
 
                 if (result.status === 'success') {
-                    document.getElementById('bNoDaftar').textContent = globalNoDaftar;
-                    document.getElementById('bNama').textContent = globalNama;
-                    document.getElementById('bTTL').textContent = `${dataPelengkap.tempatLahir}, ${dataPelengkap.tglLahir}`;
-                    document.getElementById('bAsal').textContent = dataPelengkap.asalSekolah;
-                    document.getElementById('bWali').textContent = dataPelengkap.namaWali;
+                    // Masukkan data ke halaman Cetak (Kop Surat)
+                    document.getElementById('pNoDaftar').textContent = globalNoDaftar;
+                    document.getElementById('pTglDaftar').textContent = new Date().toLocaleDateString('id-ID', {day:'numeric', month:'long', year:'numeric'});
+                    document.getElementById('pNama').textContent = globalNama;
+                    document.getElementById('pNisn').textContent = dataPelengkap.nisn;
+                    document.getElementById('pJk').textContent = dataPelengkap.jk;
+                    document.getElementById('pTTL').textContent = `${dataPelengkap.tempatLahir}, ${dataPelengkap.tglLahir.split('-').reverse().join('-')}`;
+                    document.getElementById('pAsal').textContent = dataPelengkap.asalSekolah;
+                    document.getElementById('pWali').textContent = dataPelengkap.namaWali;
+                    document.getElementById('pAlamat').textContent = dataPelengkap.alamat;
+                    document.getElementById('pTtdNama').textContent = dataPelengkap.namaWali;
+                    document.getElementById('pTglTtd').textContent = new Date().toLocaleDateString('id-ID', {day:'numeric', month:'long', year:'numeric'});
 
                     Swal.fire({
-                        icon: 'success', title: 'Pendaftaran Selesai!', text: 'Data Anda telah tersimpan dengan aman.', confirmButtonColor: '#fd5308'
+                        icon: 'success', title: 'Berhasil!', text: 'Data dan foto telah tersimpan.', confirmButtonColor: '#002858'
                     }).then(() => { showSection('sec-bukti'); });
                 } else {
                     throw new Error(result.message);
@@ -421,7 +443,9 @@
             } catch (error) {
                 Swal.fire('Error', 'Gagal menyimpan kelengkapan: ' + error.message, 'error');
             } finally {
-                btn.disabled = false; spinner.style.display = 'none'; txt.textContent = 'Simpan & Selesaikan Pendaftaran';
+                btn.disabled = false; 
+                document.getElementById('spinLengkap').style.display = 'none'; 
+                document.getElementById('txtLengkap').textContent = 'Simpan Data & Cetak Bukti';
             }
         });
     </script>
